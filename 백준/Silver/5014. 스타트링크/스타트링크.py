@@ -1,4 +1,3 @@
-
 '''
 F: 총 건물의 층
 S: 현재 층
@@ -28,8 +27,6 @@ def bfs(s):
             visited[k-D] = 1
 
     return "use the stairs"
-
-
 
 
 F, S, G, U, D = map(int,input().split())
