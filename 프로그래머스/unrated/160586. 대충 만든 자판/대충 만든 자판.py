@@ -14,9 +14,7 @@ def solution(keymap, targets):
             if dic.get(targets[i][j]):
                 tmp += int(dic[targets[i][j]])
             else:
-                tmp += 100000000
+                tmp = -1
+                break
         answer.append(tmp)
-    for i in range(len(answer)):
-        if answer[i] >= 100000000:
-            answer[i] =-1
     return answer        
