@@ -22,4 +22,3 @@ def solution(park, routes):
                             i,j = x,y
                             break
                 return [i,j]
-                    
