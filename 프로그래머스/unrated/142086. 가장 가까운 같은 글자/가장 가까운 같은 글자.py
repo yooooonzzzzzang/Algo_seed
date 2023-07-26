@@ -1,11 +1,10 @@
-from collections import deque
 def solution(s):
     answer = []
-    q = deque()
+    # 글자의 왼쪽으로 같은 글자가 있는지 확인
     for i in range(len(s)):
-        for j in range(i,0,-1):
-            if s[i] == s[j-1]:
-                answer.append(i-(j-1))
+        for j in range(i-1,-1,-1):
+            if s[i] == s[j]:
+                answer.append(i-j)
                 break
         else:
             answer.append(-1)
