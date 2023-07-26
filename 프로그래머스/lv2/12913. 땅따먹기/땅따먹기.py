@@ -1,6 +1,16 @@
 def solution(land):
-    for i in range(1, len(land)):
+    answer = 0
+    print(land)
+    
+    for i in range(len(land)):
+        max_n = max(land[i])
+        max_n_index = land[i].find(max_num)
+        tmp = 0
         for j in range(4):
-            land[i][j] += max(land[i-1][k] for k in range(4) if k != j)
-            #land[i][j] += max(land[i-1][:j]+ land[i-1][j+1:])
-    return max(land[-1])
+            
+            if j != max_n_index:
+                if tmp < land[i][j]
+        # for j in range(len(land[0])):
+           
+    
+    return answer
