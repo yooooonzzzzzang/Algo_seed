@@ -1,9 +1,6 @@
 def solution(food):
     answer = ''
-    len_food = len(food)
-    for i in range(1, len_food):
-        answer += str(i)*(food[i]//2)
-    answer += '0'
-    for i in range(1, len_food):
-        answer += str(len_food-i)*(food[len_food-i]//2)
-    return answer
+    for i in range(1,len(food)):
+        cnt = food[i] // 2 
+        answer += str(i) * cnt
+    return answer +'0' + answer[::-1]
