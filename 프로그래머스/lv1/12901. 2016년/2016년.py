@@ -1,8 +1,6 @@
 def solution(a, b):
-    answer = ''
-    # 윤년 2월이 29일까지 있음
-    # 1월 1일 금요일이라 7로 나뉘면 인덱스 1이 금요일이 되도록 배열
-    day = ["THU","FRI","SAT","SUN","MON","TUE","WED"]
-    mon = [31, 29, 31, 30, 31, 30 , 31, 31, 30, 31, 30, 31]
-    
-    return day[(sum(mon[:a-1])+b ) % 7]
+    # 윤년 29일
+    months = [31,29,31,30,31,30,31,31,30,31,30,31]
+    # 인덱스1에 금요일이 오도록
+    days= ["THU","FRI","SAT","SUN","MON","TUE","WED"]
+    return days[(sum(months[:a-1])+b)%7]
