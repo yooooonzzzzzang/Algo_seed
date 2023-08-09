@@ -1,11 +1,7 @@
 def solution(nums):
-    n = len(nums)
-    po_info = []
-    for i in nums:
-        if i not in po_info:
-            po_info.append(i)
-    if len(po_info) >= n//2:
-        answer = n//2
-    else:
-        answer = len(po_info)
-    return answer
+    answer = 0
+    set_len = len(set(nums))
+    k = len(nums)//2
+    if set_len>k:
+        return k
+    return set_len
