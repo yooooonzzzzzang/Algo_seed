@@ -1,38 +1,39 @@
-two_C  = [2,1,2,3,2,4,2,5]
-three_C = [3,3,1,1,2,2,4,4,5,5]
+def one(n):
+    arr = []
+    for i in range(n):
+        arr.append(i%5+1)
+    return arr
+
+def two(n):
+    arr = []
+    order = [2,1,2,3,2,4,2,5] 
+    for i in range(n):            
+        arr.append(order[i%len(order)])
+    return arr
+
+def three(n):
+    arr = []
+    order = [3,3,1,1,2,2,4,4,5,5]
+    for i in range(n):            
+        arr.append(order[i%len(order)])
+    return arr
+
+def correct(answers, arr):
+    cnt = 0
+    for i in range(len(answers)):
+        if answers[i] == arr[i]:
+            cnt += 1
+    return cnt
+
 def solution(answers):
+    ans =[]
     answer = []
-
-    def one():
-        cnt = 0
-        for i in range(len(answers)):
-            a = i % 5 +1
-            if answers[i] == a:
-                cnt +=1
-        return cnt
-
-    def two():
-        cnt = 0
-        for i in range(len(answers)):
-            if answers[i] == two_C[i % 8]:
-                cnt += 1
-        return cnt
-
-    def three():
-        cnt = 0
-        for i in range(len(answers)):
-            if answers[i] == three_C[i % 10]:
-                cnt += 1
-        return cnt
-
-    answer.append((1,one()))
-    answer.append((2,two()))
-    answer.append((3,three()))
-
-    real =[]
-    answer.sort(key=lambda x:x[1], reverse=True)
-    for i in range(len(answer)):
-            if answer[i][1] == answer[0][1]:
-                real.append(answer[i][0])
-    print(real)
-    return real
+    n = len(answers)
+    answer.append(correct(answers, one(n)))
+    answer.append(correct(answers, two(n)))
+    answer.append(correct(answers, three(n)))
+    k= max(answer)
+    for i in range(3):
+        if answer[i] >= k:
+            ans.append(i+1)
+    return ans
