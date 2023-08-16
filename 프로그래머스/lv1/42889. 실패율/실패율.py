@@ -1,12 +1,18 @@
+
 def solution(N, stages):
-    people = len(stages)
-    answer = {}
-    for i in range(1,N+1):
-        if people != 0:
-            not_clear = stages.count(i)
-            answer[i] = not_clear/people
-            people -= not_clear
+    answer = []
+    arr = [0] * (N+2)
+    for i in range(len(stages)):
+        arr[stages[i]] += 1
+        
+    for i in range(N):
+        sums = sum(arr[i+1:])
+        if sums == 0:
+            answer.append((0, i+1))
         else:
-            answer[i] = 0
-    
-    return sorted(answer, key=lambda x:answer[x], reverse=True)
+            answer.append((arr[i+1]/sums, i+1))
+    answer.sort(reverse=True, key=lambda x: x[0])
+    real = []
+    for i in answer:
+        real.append(i[1])
+    return real
