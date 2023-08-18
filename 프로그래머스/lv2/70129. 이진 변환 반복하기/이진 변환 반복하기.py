@@ -1,27 +1,11 @@
 def solution(s):
-    answer = []
-    zeroCnt = 0
-    changeCnt = 0
+    # 이진변환 횟수, 제거된 0 의 개수
+    answer = [0,0]
+    print(s.count('0'))
     while s != '1':
-        oneCnt = 0
-        for i in s:
-            if i == '0':
-                zeroCnt+=1
-            else:
-                oneCnt+=1
-        # 이진 변화해주기
-        stack = []
-        while oneCnt:
-            na = oneCnt % 2
-            stack.append(na)
-            oneCnt = oneCnt//2
-            if oneCnt == 1:
-                stack.append(1)
-                break
-        s =''
-        for i in range(len(stack)-1,-1,-1):
-            s = s + str(stack[i])
-        changeCnt += 1
-    answer.append(changeCnt)
-    answer.append(zeroCnt)
+        scount = s.count('0')
+        answer[1] += scount
+        s = bin(len(s)-scount)[2:]
+        answer[0] += 1
+            # 0 제거 하고 cnt 길이를 2진법으로 변경 
     return answer
