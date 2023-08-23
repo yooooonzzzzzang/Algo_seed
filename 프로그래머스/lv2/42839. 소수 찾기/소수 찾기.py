@@ -1,31 +1,28 @@
 from itertools import permutations
 def solution(numbers):
-    arr = list(numbers)
-    a =[]
     answer = 0
-    for i in range(1,len(arr)+1):
-        k = list(permutations(numbers, i))
-        for j in k:
-            num = int(''.join(j))
-            if num not in a:
-                a.append(num)
-    print(a)
-    for i in a:
-        if is_prime_num(int(i)) == True:
+    n = len(numbers)
+    nums = set()
+    # 1. 1~ n 개 만큼 permutation (n) 개로 순열, set으로 중복제거
+    for i in range(1, n+1):
+        per_nums = list(permutations(numbers, i))
+        for j in range(len(per_nums)):
+            nums.add(int(''.join(per_nums[j])))
+    # 2. 소수 판별
+    for i in nums:
+        if is_prime(i) == True:
             answer += 1
     return answer
 
-def is_prime_num(k):
-    if k <2:
+def is_prime(k):
+    if k<2:
         return False
-    if k==2 or k == 3:
-        return True
-    if k % 2 == 0:
-        return False
-    for i in range(3, int(k**0.5)+1, 2):
-        if k % i == 0:
+    else:
+        if k ==2 or k ==3:
+            return True
+        if k % 2 ==0:
             return False
+        for i in range(3, int(k**0.5)+1, 2):
+            if k % i == 0:
+                return False
     return True
-
-
-          
