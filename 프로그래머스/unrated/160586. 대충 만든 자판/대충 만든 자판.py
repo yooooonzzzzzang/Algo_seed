@@ -1,20 +1,21 @@
 def solution(keymap, targets):
     answer = []
     dic = {}
+
     for i in range(len(keymap)):
         for j in range(len(keymap[i])):
-            if dic.get(keymap[i][j]):
-                dic[keymap[i][j]] = min(j+1,dic[keymap[i][j]])
-            else:
+            if not dic.get(keymap[i][j]):
                 dic[keymap[i][j]] = j+1
-    
-    for i in range(len(targets)):
-        tmp = 0
-        for j in range(len(targets[i])):
-            if dic.get(targets[i][j]):
-                tmp += int(dic[targets[i][j]])
-            else:
-                tmp = -1
+            else: dic[keymap[i][j]] = min(j+1, dic[keymap[i][j]])
+    for i in targets:
+        flag = True
+        cnt = 0
+        for j in i:
+            if not dic.get(j):
+                answer.append(-1)
+                flag = False
                 break
-        answer.append(tmp)
-    return answer        
+            else: cnt += dic[j]
+        if flag == True:
+            answer.append(cnt)
+    return answer
