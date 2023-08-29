@@ -1,16 +1,17 @@
-from collections import deque 
+from collections import deque
 def solution(n, m, section):
-    dq=deque(section)
-    cnt=1
-    # 벽을 칠함
-    roller=section[0]+m-1
-    
-    while dq:
-        # flag보다 작으면 dq.pop()
-        if dq[0]<=roller:
-            dq.popleft()
-        #아닐경우 flag 재지정
+    answer = 1
+    section = deque(section)
+    # m: 롤러의 길이, n: 벽의 길의, section[]: 페인트 칠이 필요한 곳
+    position = section[0]
+    section.popleft()
+    idx = 0 
+    while section:
+        paint = position+m-1
+        if paint >= section[0]:
+            section.popleft()
+            
         else:
-            cnt+=1
-            roller=dq[0]+m-1
-    return cnt
+            answer += 1 
+            position = section.popleft()
+    return answer
