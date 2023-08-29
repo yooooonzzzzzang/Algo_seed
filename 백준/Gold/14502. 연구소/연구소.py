@@ -18,12 +18,12 @@ dx =[-1,1,0,0]
 dy = [0,0,-1,1]
 
 
-def dfs(x,y,maps2):
+def dfs(x,y):
     for k in range(4):
         nx, ny = x+dx[k], y+dy[k]
         if 0<=nx<N and 0<=ny<M and maps2[nx][ny] == '0':
             maps2[nx][ny] = '2'
-            dfs(nx,ny,maps2)
+            dfs(nx,ny)
 
 
 
@@ -37,11 +37,11 @@ for i in range(N):
 safe_area = 0
 for combination in list(combinations(arr,3)):
     # 2차 연구소
-    maps2 = copy.deepcopy(maps)
-    # maps2 = [[0] *M for _ in range(N)]
-    # for i in range(N):
-    #     for j in range(M):
-    #         maps2[i][j] = maps[i][j]
+    # maps2 = copy.deepcopy(maps)
+    maps2 = [[0] *M for _ in range(N)]
+    for i in range(N):
+        for j in range(M):
+            maps2[i][j] = maps[i][j]
     # 3개 벽 추가
     for comb in combination:
         r,c = comb
@@ -50,7 +50,7 @@ for combination in list(combinations(arr,3)):
     for i in range(N):
         for j in range(M):
             if maps2[i][j] == '2':
-                dfs(i,j,maps2)
+                dfs(i,j)
     # 안전영억 세기
     cnt = 0
     for i in range(N):
