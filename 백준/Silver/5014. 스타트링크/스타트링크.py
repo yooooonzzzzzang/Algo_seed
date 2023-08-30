@@ -1,34 +1,19 @@
-'''
-F: 총 건물의 층
-S: 현재 층
-G: 목표 층
-U: 위로 u 만큼 간다
-D: 아래로 d 만큼 간다
-'''
 from collections import deque
-def bfs(s):
-    global cnt
-    cnt = 0
-    visited = [0] *(F+1)
+def bfs(s, cnt):
     q = deque()
-    visited[s] = 1
     q.append((s, cnt))
+    v[s] = 1
     while q:
-        k, newcnt = q.popleft()
-        if k == G:
-            return newcnt
-        # 조건
-        if F >= k + U and not visited[k+U]:
-            visited[k+U] = 1
-            q.append((k+U, newcnt+1))
-
-        if k - D > 0 and not visited[k-D]:
-            q.append((k-D, newcnt+1))
-            visited[k-D] = 1
-
+        s, cnt = q.popleft()
+        if s == g:
+            return cnt
+        for i in (s + u, s - d):
+            if 1<=i<=f and not v[i]:
+                q.append((i, cnt+1))
+                v[i] = 1
     return "use the stairs"
+f,s,g,u,d = map(int, input().split())
+# 총 f , 현재 s , 목표 g,
+v = [0] *(1000000+1)
 
-
-F, S, G, U, D = map(int,input().split())
-cnt = 0
-print(bfs(S))
+print(bfs(s, 0))
