@@ -1,15 +1,17 @@
+import math
 def solution(n, words):
-    tt = []
+    answer = []
+    q = []
+    # 탈락하는경우: 이미 나온 단어를 말한경우, 이전 단어 마지막 글자로 시작하지 않는 경우
     for i in range(len(words)):
-        player = i % n +1
-        player_cnt = i //n + 1
-        # 단어 중복 체크 -> return
-        if words[i] in tt:
-            return [player, player_cnt]
+        if not q:
+            q.append(words[i])
         else:
-            tt.append(words[i])
-        # 이전 단어 끝과 현재 단어 처음 글자 비교 -> return
-        if i != 0:
-            if tt[-1][0] != words[i-1][-1]:
-                return [player, player_cnt]
-    return [0,0]
+            if words[i][0] != q[-1][-1] or words[i] in q:
+                # idx, 몇번째 
+                return [i%n+1, i//n+1]
+            else:
+                q.append(words[i])
+    # break 안됐으면 끝말잇기 잘함
+    else:
+        return [0,0]
