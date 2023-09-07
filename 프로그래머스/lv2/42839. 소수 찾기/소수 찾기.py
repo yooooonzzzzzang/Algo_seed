@@ -1,16 +1,34 @@
-from itertools import permutations
+tmp = []
+def permutations(arr,numbers,length,v):
+    if len(arr) == length:
+        tmp.append(arr[:])
+        return
+    for i in range(len(numbers)):
+        if not v[i]:
+            v[i] = True
+            arr.append(numbers[i])
+    
+            permutations(arr, numbers, length, v)
+    
+            v[i] = False
+            arr.pop()
+
+
 def solution(numbers):
     answer = 0
     n = len(numbers)
     nums = set()
-    # 1. 1~ n 개 만큼 permutation (n) 개로 순열, set으로 중복제거
+    # 순열 
     for i in range(1, n+1):
-        per_nums = list(permutations(numbers, i))
-        for j in range(len(per_nums)):
-            nums.add(int(''.join(per_nums[j])))
+        v = [0] * len(numbers)
+        permutations([],numbers, i, v)
+    # [] -> int, set
+    for i in range(len(tmp)):
+        nums.add(int(''.join(tmp[i])))
+        
     # 2. 소수 판별
     for i in nums:
-        if is_prime(i) == True:
+        if is_prime(i):
             answer += 1
     return answer
 
