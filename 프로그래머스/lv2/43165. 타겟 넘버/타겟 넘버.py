@@ -1,17 +1,14 @@
-from collections import deque
 def solution(numbers, target):
     answer = 0
-    queue = deque()
-    n = len(numbers)
-    queue.append([numbers[0], 0])
-    queue.append([-1*numbers[0],0])
-    while queue:
-        temp, idx = queue.popleft()
-        idx += 1
-        if idx < n: # 아직 숫자 다 안돌았음
-            queue.append([temp+numbers[idx], idx])
-            queue.append([temp-numbers[idx],idx])
-        else:
-            if temp == target:
+    
+    def dfs(i, sum):
+        nonlocal answer
+        if i == len(numbers):
+            if sum == target:
                 answer += 1
+            return
+        dfs(i+1, sum + numbers[i])
+        dfs(i+1, sum - numbers[i])
+    
+    dfs(0,0)
     return answer
