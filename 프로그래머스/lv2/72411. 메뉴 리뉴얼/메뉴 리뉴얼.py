@@ -1,20 +1,13 @@
-from itertools import combinations
 from collections import Counter
-
+from itertools import combinations
 def solution(orders, course):
-    _list = []
-    for order in orders:
-        for c in course:
-            _list += list(combinations(sorted(order), c))
+    result = []
 
-    _dict = {k: [2] for k in course}
-    for k, v in Counter([''.join(v) for v in _list]).items():
-        if _dict[len(k)][0] == v:
-            _dict[len(k)].append(k)
-        elif _dict[len(k)][0] < v:
-            _dict[len(k)] = [v, k]
+    for i in course:
+        combis = []
+        for order in orders:
+            combis += combinations(sorted(order), i)
+        most_common_order = Counter(combis).most_common()
+        result += [ k for k, v in most_common_order if v >= 2 and v == most_common_order[0][1] ]
+    return [ ''.join(v) for v in sorted(result) ]
 
-    answer = []
-    for v in _dict.values():
-        answer += v[1:]
-    return sorted(answer)
