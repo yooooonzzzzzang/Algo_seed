@@ -5,8 +5,8 @@ def solution(order):
     n = len(order)
     temp = []
     for i in range(1, n+1):
-        if i <= order[0]:
-            temp.append(i)
+     
+        temp.append(i)
 
         while True:
             if temp and temp[-1] == order[0]:
