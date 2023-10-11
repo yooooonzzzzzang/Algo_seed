@@ -1,12 +1,9 @@
-n,k = map(int, input().split())
-arr = list(map(int,input().split()))
-answer = []
-pre = 0
-prefix_sum = [0]
+n, k = map(int, input().split())
+arr = list(map(int, input().split()))
+prefix = [0] * (n+1)
 for i in range(n):
-    pre += arr[i]
-    prefix_sum.append(pre)
+    prefix[i+1] = prefix[i] + arr[i]
+ans = []
 for i in range(n-k+1):
-    part_sum = prefix_sum[i+k] - prefix_sum[i]
-    answer.append(part_sum)
-print(max(answer))
+    ans.append(prefix[i+k] - prefix[i])
+print(max(ans))
