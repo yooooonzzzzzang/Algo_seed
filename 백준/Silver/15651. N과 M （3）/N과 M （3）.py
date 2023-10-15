@@ -1,14 +1,11 @@
-def solution(arr , cnt):
-    if len(arr) == cnt:
+n,m = map(int, input().split())
+arr = []
+def recur():
+    if len(arr) == m:
         print(*arr)
-        return
-    for i in range(n):
-        arr.append(nums[i])
-        solution(arr, cnt)
+        return 
+    for i in range(1, n+1):
+        arr.append(i)
+        recur()
         arr.pop()
-
-
-
-n, m = map(int, input().split())
-nums = [i for i in range(1, n+1)]
-solution([], m)
+recur()
