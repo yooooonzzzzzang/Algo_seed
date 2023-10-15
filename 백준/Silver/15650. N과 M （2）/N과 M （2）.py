@@ -1,13 +1,13 @@
-def combinations(arr,start,cnt):
-    if len(arr) == cnt:
-        print(*arr)
+n, m  = map(int, input().split())
+arr = []
+def recur(start):
+    if len(arr) == m:
+        print(' '.join(map(str, arr)))
         return
-    for i in range(start, n):
-        arr.append(nums[i])
-        combinations(arr, i+1, cnt)
-        arr.pop()
-n,m = map(int,input().split())
+    for i in range(start, n+1):
+        if i not in arr:
+            arr.append(i)
+            recur(i+1)
+            arr.pop()
 
-nums = [i for i in range(1, n+1)]
-
-combinations([],0,m)
+recur(1)
