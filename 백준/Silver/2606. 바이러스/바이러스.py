@@ -1,33 +1,24 @@
-'''
-7
-6
-1 2
-2 3
-1 5
-5 2
-5 6
-4 7
-'''
-from collections import deque
-def bfs(v):
-    queue = deque()
-    queue.append(v)
-    visited[v] = 1
-    cnt = 0
-    while queue:
-        k = queue.popleft()
-        for next_v in com[k]:
-            if not visited[next_v]:
-                visited[next_v] = 1
-                queue.append(next_v)
-                cnt += 1
-    return cnt
-n = int(input())
-m = int(input())
-com =[[] for _ in range(n+1)]
-visited = [0] * (n+1)
+def dfs(v):
+    visited[v] = True  # 현재 정점 방문처리
+
+    for next_v in graph[v]:
+        if not visited[next_v]:  # 방문하지 않았다면  if visited[w] == 0:
+            global total
+            total += 1  # 감염 컴퓨터 1개 증가
+            dfs(next_v)  # 인접 정점으로 이동
+
+
+n = int(input())  # 정점 개수
+m = int(input())  # 간선 개수
+graph = [[] for _ in range(n + 1)]  # 0~ 7 까지 만들고 1 ~ 7만 사용
+visited = [False] * (n + 1)
+total = 0  # 결과 값 (감염된 컴퓨터의 개수)
+
+# 인접 리스트 만들기
 for _ in range(m):
     v1, v2 = map(int, input().split())
-    com[v1].append(v2)
-    com[v2].append(v1)
-print(bfs(1))
+    graph[v1].append(v2)
+    graph[v2].append(v1)
+
+dfs(1)  # 1번 정점에서 시작
+print(total)
