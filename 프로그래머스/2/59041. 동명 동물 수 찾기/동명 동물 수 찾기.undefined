@@ -1,0 +1,3 @@
+-- 코드를 입력하세요
+# 집계함수는 where 절에 쓸수 없고 group by 의 조건을 걸수있는 having 절에서 사용가능
+SELECT NAME, count(*)as COUNT from ANIMAL_INS group by name having count(name) > 1 order by name;
