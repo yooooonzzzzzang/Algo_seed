@@ -11,7 +11,7 @@ def solution(n, wires):
         v[node] = 1
         cnt = 1
         for i in arr[node]:
-            if not v[i] and i not in ():
+            if not v[i] :
                 cnt += dfs(i, v)
         return cnt
                 
@@ -33,20 +33,5 @@ def solution(n, wires):
         t = cut(i)
         if answer >= t:
             answer = t
-    # for i in range(n):
-    #     cut(i)
-        
-        # if answer >= counting_cnt:
-        #     answer = counting_cnt
-    
-    
-    
-
-    
-#     for i in range(n):
-#         v = [0] * (n+1)
-#         tmp = cut(i)
-#         if answer >= tmp:
-#             answer= tmp
 
     return answer
