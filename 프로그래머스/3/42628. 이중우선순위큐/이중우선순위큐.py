@@ -12,6 +12,7 @@ def solution(operations):
                     # 최댓값 삭제
                     k = heapq.nlargest(1, min_heap)
                     min_heap.remove(int(k[0]))
+                    heapq.heapify(min_heap)
                 else:
                     # 최솟값 삭제
                     heapq.heappop(min_heap)
