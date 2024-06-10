@@ -1,11 +1,21 @@
-from itertools import permutations
 n, m = map(int, input().split())
-# 4 4 2
+arr= list(map(int, input().split()))
+arr.sort()
+ans = [0]*m
+v = [0] * n
 
-arr = list(map(int,input().split()))
-a = list(set(list(permutations(arr, m))))
-a.sort()
-for i in a:
-    for j in range(m):
-        print(i[j], end=" ")
-    print("")
+def dfs(level):
+    check = 0
+    if level == m:
+        print(*ans)
+        return
+    else:
+
+        for i in range(n):
+            if v[i] == 0 and check != arr[i] :
+                check = arr[i]
+                ans[level] = arr[i]
+                v[i] = 1
+                dfs(level+1)
+                v[i] = 0
+dfs(0)
