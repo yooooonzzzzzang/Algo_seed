@@ -23,4 +23,4 @@ for A in range(15):
                 tmp.append(a+b+c+d) 
                 if sorted(tmp) == sorted(arr):
                     print(a,b,c,d)
-                    exit(1)
+                    exit(0)
