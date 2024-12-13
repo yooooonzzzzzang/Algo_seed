@@ -14,6 +14,6 @@ def solution(l,m):
 
 
 # 뽑을 개수
-for i in range(1,1001):
+for i in range(1,10001):
     ans = max(ans, solution(i,i+k))
 print(ans)
