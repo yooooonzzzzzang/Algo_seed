@@ -10,7 +10,7 @@ def solution():
             now = i
     return ans
 for i in range(n):
-    for j in range(n):
+    for j in range(i+1,n):
         if not arr[i] and not arr[j]:
             arr[i] = 1 
             arr[j] = 1
