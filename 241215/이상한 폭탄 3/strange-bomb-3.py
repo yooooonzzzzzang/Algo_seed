@@ -19,4 +19,7 @@ for i in range(n+1):
     if cnt[i] >= max_ans:
         max_ans = cnt[i]
         max_idx = i
-print(max_idx)
+if max_ans == 0:
+    print(0)
+else:
+    print(max_idx)
