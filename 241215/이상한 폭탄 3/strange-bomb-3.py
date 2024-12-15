@@ -1,7 +1,7 @@
 n,k = map(int,input().split())
-arr = [int(input()) for _ in range(n)]+[0]
+arr = [int(input()) for _ in range(n)]
 check = [0] * (n+1)
-cnt = [0] * (n+1)
+cnt = [0] * (101)
 
 
 for i in range(n):
