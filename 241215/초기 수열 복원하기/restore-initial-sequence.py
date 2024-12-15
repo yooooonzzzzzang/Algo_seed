@@ -5,7 +5,7 @@ for i in range(1,n+1):
     tmp = [i]
     now = 0
     for j in range(len(arr)):
-        if arr[j]-tmp[-1] != 0:
+        if arr[j]-tmp[-1] > 0:
             tmp.append(arr[j]-tmp[-1])
         else:
             break
