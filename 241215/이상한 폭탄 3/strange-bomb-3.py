@@ -15,7 +15,7 @@ for i in range(n):
                 cnt[arr[j]] += 1
 max_ans = 0
 max_idx = 0
-for i in range(n+1):
+for i in range(101):
     if cnt[i] >= max_ans:
         max_ans = cnt[i]
         max_idx = i
