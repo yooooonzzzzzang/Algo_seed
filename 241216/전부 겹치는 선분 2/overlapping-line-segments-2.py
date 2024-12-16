@@ -1,10 +1,10 @@
 n = int(input())
 arr = [list(map(int,input().split())) for _ in range(n)]
 
-
+flag = "Yes"
 # 제외할 선분
 for k in range(n):
-    flag = "Yes"
+
     for i in range(k+1, n):
  
         for j in range(k+2, n):
@@ -13,7 +13,6 @@ for k in range(n):
             # 안겹치면 No
             if x2 < x3 or x4 < x1:
                 flag = "No"
-    if flag =="Yes":
-        break
+
 
 print(flag)
