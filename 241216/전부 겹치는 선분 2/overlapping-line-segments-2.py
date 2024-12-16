@@ -1,18 +1,20 @@
 n = int(input())
-arr = [list(map(int,input().split())) for _ in range(n)]
+arr = [list(map(int, input().split())) for _ in range(n)]
 
-flag = "Yes"
-# 제외할 선분
-for k in range(n):
+def can_all_overlap(arr, n):
+    for k in range(n):  # k번째 선분을 제외
+        min_start, max_end = -float('inf'), float('inf')
 
-    for i in range(k+1, n):
- 
-        for j in range(k+2, n):
-            x1, x2 = arr[i][0], arr[i][1]
-            x3, x4 = arr[j][0], arr[j][1]
-            # 안겹치면 No
-            if x2 < x3 or x4 < x1:
-                flag = "No"
+        # k를 제외한 나머지 선분들로 교집합 확인
+        for i in range(n):
+            if i == k:
+                continue
+            min_start = max(min_start, arr[i][0])  # 최대 시작점
+            max_end = min(max_end, arr[i][1])    # 최소 종료점
+        
+        # 교집합이 존재한다면
+        if min_start <= max_end:
+            return "Yes"
+    return "No"
 
-
-print(flag)
+print(can_all_overlap(arr, n))
