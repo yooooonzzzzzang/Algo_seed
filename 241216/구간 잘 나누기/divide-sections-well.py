@@ -16,6 +16,6 @@ for i in range(1,MAX_V+1):
             tmp = 0
             section += 1
         tmp += arr[j]
-    if flag and section == m:
+    if flag and section <= m:
         ans = min(ans,i)
 print(ans)
