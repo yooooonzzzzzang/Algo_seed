@@ -10,7 +10,7 @@ for x,y in arr:
     max_v = max(max_v, y)
 
 
-if x < y:
+if x >= y:
     print("Yes")
 else:
     print("No")
