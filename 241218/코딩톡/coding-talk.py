@@ -1,9 +1,19 @@
-n,m,p = map(int,input().split())
-info = [input().split() for _ in range(m)]
-alp = [chr(ord('A')+i) for i in range(n)]
-for i in range(p-1,n):
-    if info[i][0] in alp:
-        alp.remove(info[i][0])
-if info[p-1][1] != '0':
-    print(*alp)
-    
+import sys
+
+n, m, p = tuple(map(int, input().split()))
+message = [
+    list(input().split())
+    for _ in range(m)
+]
+# 예외
+if message[p-1][1] == 0:
+    sys.exit()
+
+for i in range(n):
+    person = chr(ord('A')+i)
+    flag = False
+    for c,u in message:
+        if int(u) >= int(message[p-1][1]) and person == c:
+            flag = True
+    if not flag:
+        print(person, end=" ")
