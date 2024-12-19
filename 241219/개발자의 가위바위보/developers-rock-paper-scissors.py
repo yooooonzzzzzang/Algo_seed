@@ -6,7 +6,7 @@ ans = 0
 for i in range(n):
     if arr[i][0] == 1 and arr[i][1] ==3:
         cnt1 += 1
-    elif arr[i][0] == 2 and arr[i][0] == 1:
+    elif arr[i][0] == 2 and arr[i][1] == 1:
         cnt1 += 1
     elif arr[i][0] == 3 and arr[i][1] ==2:
         cnt1 += 1
@@ -16,7 +16,7 @@ cnt1 = 0
 for i in range(n):
     if arr[i][0] == 1 and arr[i][1] ==2:
         cnt1 += 1
-    elif arr[i][0] == 2 and arr[i][0] == 3:
+    elif arr[i][0] == 2 and arr[i][1] == 3:
         cnt1 += 1
     elif arr[i][0] == 3 and arr[i][1] ==1:
         cnt1 += 1
@@ -26,7 +26,7 @@ cnt1 = 0
 for i in range(n):
     if arr[i][0] == 1 and arr[i][1] ==2:
         cnt1 += 1
-    elif arr[i][0] == 2 and arr[i][0] == 3:
+    elif arr[i][0] == 2 and arr[i][1] == 3:
         cnt1 += 1
     elif arr[i][0] == 3 and arr[i][1] ==1:
         cnt1 += 1
@@ -36,7 +36,7 @@ cnt1 = 0
 for i in range(n):
     if arr[i][0] == 1 and arr[i][1] ==3:
         cnt1 += 1
-    elif arr[i][0] == 2 and arr[i][0] == 1:
+    elif arr[i][0] == 2 and arr[i][1] == 1:
         cnt1 += 1
     elif arr[i][0] == 3 and arr[i][1] ==2:
         cnt1 += 1
@@ -47,7 +47,7 @@ cnt1 = 0
 for i in range(n):
     if arr[i][0] == 1 and arr[i][1] ==3:
         cnt1 += 1
-    elif arr[i][0] == 2 and arr[i][0] == 1:
+    elif arr[i][0] == 2 and arr[i][1] == 1:
         cnt1 += 1
     elif arr[i][0] == 3 and arr[i][1] ==2:
         cnt1 += 1
@@ -57,7 +57,7 @@ cnt1 = 0
 for i in range(n):
     if arr[i][0] == 1 and arr[i][1] ==2:
         cnt1 += 1
-    elif arr[i][0] == 2 and arr[i][0] == 3:
+    elif arr[i][0] == 2 and arr[i][1] == 3:
         cnt1 += 1
     elif arr[i][0] == 3 and arr[i][1] ==1:
         cnt1 += 1
