@@ -1,10 +1,8 @@
 a,b,c = map(int,input().split())
 cnt = 0
-if b-a == 1 and c-b ==1:
+if abs(b-a) == 1 and abs(c-b) ==1:
     print(0)
-elif c - b == 3 or b - a == 3:
-    print(2)
-elif c - b == 2 or b - a == 2:
+elif abs(c - b) <= 2 and abs(b - a) <= 2:
     print(1)
 else:
-    print(c-b-a)
+    print(max(abs(b-a), abs(c-b)) - 1)
