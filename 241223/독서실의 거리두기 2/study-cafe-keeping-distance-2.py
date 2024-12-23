@@ -10,7 +10,26 @@ for i in range(n):
                     max_idx = (i,j)
                 break
 
-arr[(max_idx[1] + max_idx[0])//2] = '1'
+
+max_v2 = -1
+max_idx2 = 0
+if arr[0] == '0':
+    for i in range(n):
+        if arr[i] == '1':
+            max_v2 = i
+            break
+if arr[-1] == '0':
+    for i in range(n-1,-1,-1):
+        if arr[i] =='1':
+            if max_v2 <= n-1-i:
+                max_v2 = n-1-i
+                max_idx2 = i
+            break
+if max_v2 >= max_v //2:
+    arr[max_idx2] = '1'
+else:
+    arr[(max_idx[0] + max_idx[1]) // 2] = '1'
+
 max_v = 1000
 for i in range(n):
     for j in range(i+1,n):
@@ -19,16 +38,9 @@ for i in range(n):
                 if j-i < max_v:
                     max_v = j-i
                 break
-
-
-arr[(max_idx[1] + max_idx[0])//2] = '0'
-
-for i in range(1,n):
-    if arr[i] == '1' and arr[0] =='0':
-        max_v = max(max_v, i)
-        break
-for i in range(n-2, -1,-1):
-    if arr[i] == '1' and arr[-1] =='0':
-        max_v = max(max_v, n-1-i)
-        break
 print(max_v)
+      
+
+
+
+    
