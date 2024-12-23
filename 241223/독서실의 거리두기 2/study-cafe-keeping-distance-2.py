@@ -23,13 +23,12 @@ if arr[-1] == '0':
         if arr[i] =='1':
             if max_v2 <= n-1-i:
                 max_v2 = n-1-i
-                max_idx2 = i
+                max_idx2 = n-1
             break
 if max_v2 >= max_v //2:
     arr[max_idx2] = '1'
 else:
     arr[(max_idx[0] + max_idx[1]) // 2] = '1'
-
 ans = 1000
 for i in range(n):
     for j in range(i+1,n):
