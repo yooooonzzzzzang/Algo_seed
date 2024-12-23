@@ -12,4 +12,4 @@ for i in range(n):
 # print(cnt)
 if total == 0:
     print(total)
-else: print(total-(cnt-1))
+else: print(total-(cnt))
