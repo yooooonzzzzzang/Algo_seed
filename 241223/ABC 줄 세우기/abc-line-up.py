@@ -13,7 +13,7 @@ for i in range(n):
 if total == 0:
     print(total)
 else: 
-    if n %2 == 0:
+    if total %2 != 0:
         print(total-(cnt))
     else:
         print(total-(cnt-1))
