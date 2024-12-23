@@ -30,15 +30,15 @@ if max_v2 >= max_v //2:
 else:
     arr[(max_idx[0] + max_idx[1]) // 2] = '1'
 
-max_v = 1000
+ans = 1000
 for i in range(n):
     for j in range(i+1,n):
         if arr[i] == '1':
             if arr[j] =='1':
-                if j-i < max_v:
-                    max_v = j-i
+                if j-i < ans:
+                    ans = j-i
                 break
-print(max_v)
+print(ans)
       
 
 
