@@ -5,5 +5,5 @@ goal = sum(arr) // n
 ans = 0
 for i in arr:
     if i > goal:
-        ans += goal - i
+        ans += i - goal
 print(ans)
