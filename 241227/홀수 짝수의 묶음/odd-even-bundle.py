@@ -30,16 +30,22 @@ elif even_cnt == 0:
 else:
     # 홀수가 짝수개 있고, 짝수가 짝수개 있을떄
     if odd_cnt %  2== 0 and even_cnt % 2 ==0:
-        pass
+        ans += even_cnt * 2
+        odd_cnt -= even_cnt
+        ans += odd_cnt // 2 
     # 홀수가 짝수개 있고, 짝수가 홀수개 있을떄
     elif odd_cnt % 2 ==0 and even_cnt % 2 == 1:
-        pass
+        ans += even_cnt * 2
+        odd_cnt -= even_cnt
+        ans += odd_cnt // 2 + 1
     # 홀수가 홀수개 있고, 짝수가 짝수개 있을떄
     elif odd_cnt % 2 == 1 and even_cnt % 2 == 0:
-        pass
+        ans += even_cnt * 2
+        odd_cnt -= even_cnt
+        ans += odd_cnt // 2 
      # 홀수가 홀수개 있고, 짝수가 홀수개 있을떄
     else:
-        ans += even_cnt
+        ans += even_cnt * 2
         odd_cnt -= even_cnt
         ans += odd_cnt // 2 + 1
 print(ans)
