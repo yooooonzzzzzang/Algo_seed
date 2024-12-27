@@ -16,10 +16,14 @@ while True:
             even -= 1
             ans += 1
         elif odd >= 2 :
-            odd -= 1
+            odd -= 2
             ans += 1
         else:
             # 그룹을 못만듦 -> 홀수가 0, 1 개 개수 못늘림
+            '''
+            7
+            1 3 5 7 9 11 13
+            ''' 
             if odd > 0:
                 ans -= 1
             break
