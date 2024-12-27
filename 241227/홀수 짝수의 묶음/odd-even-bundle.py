@@ -1,51 +1,33 @@
-# 짝수 
-# 짝 + 짝 
-# 홀 + 홀 
-# 짝
-
-# 홀수
-# 홀 + 짝 
-# 홀 
-
-
 n = int(input())
-arr = list(map(int,input().split()))
-odd_cnt = 0
-even_cnt = 0
+blocks = list(map(int, input().split()))
+
+
+even = 0
+odd = 0
+for block in blocks:
+    if(block % 2 == 0):
+        even += 1
+    else:
+        odd += 1
 ans = 0 
-for i in arr:
-    if i % 2 ==0:
-        even_cnt += 1
+while True:
+    if ans % 2 == 0:
+        if even:
+            even -= 1
+            ans += 1
+        elif odd >= 2 :
+            odd -= 1
+            ans += 1
+        else:
+            # 그룹을 못만듦 -> 홀수가 0, 1 개 개수 못늘림
+            if odd > 0:
+                ans -= 1
+            break
+
     else:
-        odd_cnt += 1
-# 짝수만 있을때
-if odd_cnt == 0:
-    ans = 0
-# 홀수만 있을때
-elif even_cnt == 0:
-    if odd_cnt % 2 == 0:
-        ans = odd_cnt // 2 + 1
-    else:
-        ans = odd_cnt // 2
-else:
-    # 홀수가 짝수개 있고, 짝수가 짝수개 있을떄
-    if odd_cnt %  2== 0 and even_cnt % 2 ==0:
-        ans += even_cnt * 2
-        odd_cnt -= even_cnt
-        ans += odd_cnt // 2 
-    # 홀수가 짝수개 있고, 짝수가 홀수개 있을떄
-    elif odd_cnt % 2 ==0 and even_cnt % 2 == 1:
-        ans += even_cnt * 2
-        odd_cnt -= even_cnt
-        ans += odd_cnt // 2 + 1
-    # 홀수가 홀수개 있고, 짝수가 짝수개 있을떄
-    elif odd_cnt % 2 == 1 and even_cnt % 2 == 0:
-        ans += even_cnt * 2
-        odd_cnt -= even_cnt
-        ans += odd_cnt // 2 
-     # 홀수가 홀수개 있고, 짝수가 홀수개 있을떄
-    else:
-        ans += even_cnt * 2
-        odd_cnt -= even_cnt
-        ans += odd_cnt // 2 + 1
+        if odd:
+            odd -= 1
+            ans += 1
+        else:
+            break
 print(ans)
