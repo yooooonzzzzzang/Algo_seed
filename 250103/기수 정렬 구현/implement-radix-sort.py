@@ -9,8 +9,10 @@ for i in range(k):
     pos = i
     for j in range(n):
         # if 문 추가
-        
-        nums [int(arr[j][i])] = int(arr[j][i])
+        if len(arr[j]) < pos:
+            nums[0] = int(arr[j])
+        else:
+            nums [int(arr[j][i])] = int(arr[j])
     arr = []
     for j in range(10):
         # 0 빼고 arr 대입
