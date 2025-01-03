@@ -1,17 +1,16 @@
-import java.util.ListIterator;
-import java.util.LinkedList;
-import java.util.stream.Collectors;
-import java.util.Scanner;
-
+import java.util.*;
+import java.io.*;
 public class Main {
     public static void main(String[] args) {
-        // Please write your code here.
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        sc.nextLine(); 
-     // 초기 문자열 입력
-        String inputString = sc.nextLine();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        // n, m 입력
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+
+        // 초기 문자열 입력
+        String inputString = br.readLine();
         LinkedList<Character> l = new LinkedList<>();
         for (char c : inputString.toCharArray()) {
             l.add(c);
@@ -19,7 +18,7 @@ public class Main {
 
         ListIterator<Character> it = l.listIterator(l.size());
         for (int i=0; i<m; i++){
-            String input = sc.nextLine();
+            String input =  br.readLine();
 
             if (input.startsWith("L")){
                 if(it.hasPrevious()){
