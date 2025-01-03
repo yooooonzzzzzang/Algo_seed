@@ -9,7 +9,7 @@ for i in range(k):
     pos = i
     for j in range(n):
         # if 문 추가
-        if len(arr[j]) < pos:
+        if len(arr[j]) <= pos:
             nums[0] = int(arr[j])
         else:
             nums [int(arr[j][i])] = int(arr[j])
