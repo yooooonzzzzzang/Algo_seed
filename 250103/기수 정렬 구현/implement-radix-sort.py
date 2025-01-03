@@ -2,21 +2,19 @@ n = int(input())
 arr = list(input().split())
 
 # Write your code here!
-nums = [0] * 10
 k = max(len(str(i)) for i in arr)
 
 for i in range(k):
-    pos = i
-    for j in range(n):
-        # if 문 추가
-        if len(arr[j]) <= pos:
-            nums[0] = int(arr[j])
+      # 0~9 버킷을 만듦
+    buckets = [[] for _ in range(10)]
+    for num in arr:
+        if len(num) <= i:
+            digit = 0
         else:
-            nums [int(arr[j][i])] = int(arr[j])
+            digit = int(num[-(i+1)])
+        buckets[digit].append(num)
     arr = []
-    for j in range(10):
-        # 0 빼고 arr 대입
-        if nums[j] != 0:
-           arr.append(str(nums[j]))
-    nums = [0] * 10 
+    for numbers in buckets:
+        for number in numbers:
+            arr.append(number)
 print(*arr)
