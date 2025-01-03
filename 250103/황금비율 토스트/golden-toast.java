@@ -10,10 +10,12 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
         sc.nextLine(); 
-        // LinkedList에 바로 대입
-        LinkedList<Character> l =sc.nextLine().chars()
-                                       .mapToObj(c -> (char) c)
-                                       .collect(Collectors.toCollection(LinkedList::new));
+     // 초기 문자열 입력
+        String inputString = sc.nextLine();
+        LinkedList<Character> l = new LinkedList<>();
+        for (char c : inputString.toCharArray()) {
+            l.add(c);
+        }
 
         ListIterator<Character> it = l.listIterator(l.size());
         for (int i=0; i<m; i++){
