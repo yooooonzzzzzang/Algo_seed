@@ -33,4 +33,4 @@ for j in range(n):
             flag = True
     if flag == True and tmp >= m:
         ans += 1
-print(1) if n == 1 and m == 1 else print(ans)
+print(2) if n == 1 and m == 1 else print(ans)
