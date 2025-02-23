@@ -1,6 +1,6 @@
 n,m,k = map(int,input().split())
 arr = [list(map(int,input().split())) for _ in range(n)]
-minI = 0
+minI =  n-1
 did = False
 for i in range(n):
     for j in range(k-1, k+m-1):
