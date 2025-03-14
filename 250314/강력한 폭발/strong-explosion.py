@@ -12,10 +12,10 @@ def bomb(x,y,type_bomb, new_arr):
 
     for i in range(5):
         dx, dy = bomb_shapes[type_bomb][i]
-            nx = x + dx
-            ny = y + dy
-            if 0<=nx<n and 0<= ny < n:
-                new_arr[nx][ny] = 1
+        nx = x + dx
+        ny = y + dy
+        if 0<=nx<n and 0<= ny < n:
+            new_arr[nx][ny] = 1
 def init():
     for i in range(n):
         for j in range(n):
