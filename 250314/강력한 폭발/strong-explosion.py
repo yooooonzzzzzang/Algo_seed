@@ -1,20 +1,21 @@
 n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
 bombs =[]
+bomb_shapes = [
+    [[-2, 0], [-1, 0], [0, 0], [1, 0], [2, 0]],
+    [[-1, 0], [1, 0], [0, 0], [0, -1], [0, 1]],
+    [[-1, -1], [-1, 1], [0, 0], [1, -1], [1, 1]]
+]
 # Please write your code here.
 # n ^^ 3
 def bomb(x,y,type_bomb, new_arr):
-    bomb_shapes = [
-        [[-2, 0], [-1, 0], [0, 0], [1, 0], [2, 0]],
-        [[-1, 0], [1, 0], [0, 0], [0, -1], [0, 1]],
-        [[-1, -1], [-1, 1], [0, 0], [1, -1], [1, 1]]
-    ]
+
     for i in range(5):
-        for dx, dy in bomb_shapes[type_bomb]:
-            nx = x + dx
-            ny = y + dy
-            if 0<=nx<n and 0<= ny < n:
-                new_arr[nx][ny] = 1
+        dx, dy = bomb_shapes[type_bomb][i]
+        nx = x + dx
+        ny = y + dy
+        if 0<=nx<n and 0<= ny < n:
+            new_arr[nx][ny] = 1
 def init():
     for i in range(n):
         for j in range(n):
