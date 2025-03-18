@@ -6,6 +6,8 @@ def cal(tmp):
     global ans
     val = tmp[0]
     for i in range(1, nl):
+        if val <  -int(1e9) or val > int(1e9):
+            return
         operator = expression[2*i-1]
         if operator == '+':
             val += tmp[i] 
