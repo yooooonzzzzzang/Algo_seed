@@ -21,7 +21,7 @@ def recur(n):
     if nl == n:
         cal(arr)
         return
-    for i in range(1,5):
+    for i in range(4,0,-1):
         arr.append(i)
         recur(n+1)
         arr.pop()
