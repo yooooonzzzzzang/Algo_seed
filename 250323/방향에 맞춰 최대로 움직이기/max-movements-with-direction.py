@@ -7,7 +7,7 @@ r,c = r-1,c-1
 dxs = [-1,-1,0,1,1,1,0,-1]
 dys = [0,1,1,1,0,-1,-1,-1]
 
-ans = 1
+ans = 0
 def recur(dir_v, x, y, cnt):
     global ans
 
@@ -21,4 +21,4 @@ def recur(dir_v, x, y, cnt):
             ans = max(ans,cnt)
             return 
 recur(move_dir[r][c],r,c,1) 
-print(ans)
+print(ans if n != 1 else 0)
