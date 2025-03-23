@@ -20,5 +20,5 @@ def recur(dir_v, x, y, cnt):
         else:
             ans = max(ans,cnt)
             return 
-recur(move_dir[r][c],r,c,1) 
+recur(move_dir[r][c],r,c,0) 
 print(ans if n != 1 else 0)
