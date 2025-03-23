@@ -10,6 +10,7 @@ dys = [0,1,1,1,0,-1,-1,-1]
 ans = 0
 def recur(dir_v, x, y, cnt):
     global ans
+    ans = max(ans,cnt)
 
         # 방향만큼 얼만큼 갈수 있는지 
     for i in range(1,n+1):
@@ -17,8 +18,6 @@ def recur(dir_v, x, y, cnt):
         ny = y + (dys[dir_v] *i)
         if 0 <= nx <n and 0<= ny <n and num[nx][ny] > num[x][y]:
             recur(move_dir[nx][ny],nx, ny, cnt+1)
-        else:
-            ans = max(ans,cnt)
-            return 
+    return 
 recur(move_dir[r][c],r,c,0) 
-print(ans if n != 1 else 0)
+print(ans)
